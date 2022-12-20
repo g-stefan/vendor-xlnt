@@ -1,1 +1,0 @@
-xlnt-1.5.0,https://github.com/tfussell/xlnt

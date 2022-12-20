@@ -1,0 +1,9 @@
+{
+	"project": {
+		"name" : "xlnt",
+		"type" : "xyo-cpp",
+		"SPDX-License-Identifier": "LicenseRef-",
+		"sourceLink" : "https://github.com/tfussell/xlnt",
+		"version" : "1.5.0"
+	}
+}
