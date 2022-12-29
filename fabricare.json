@@ -4,6 +4,9 @@
 		"type" : "xyo-cpp",
 		"SPDX-License-Identifier": "MIT",
 		"sourceLink" : "https://github.com/tfussell/xlnt",
-		"version" : "1.5.0"
+		"version" : "1.5.0",
+		"hasRelease" : true,
+		"noVersion" : true,
+		"githubRelease" : true
 	}
 }
