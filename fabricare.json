@@ -1,13 +1,17 @@
 {
-	"project": {
-		"name" : "xlnt",
+	"solution": {
+		"name" : "vendor-xlnt",
 		"type" : "xyo-cpp",
-		"SPDX-License-Identifier": "MIT",
-		"sourceLink" : "https://github.com/tfussell/xlnt",
-		"version" : "1.5.0",
-		"hasRelease" : true,
-		"noVersion" : true,
-		"githubRelease" : true,
-		"githubRepository" : "vendor-xlnt"
+		"projects": [
+			{
+				"name" : "xlnt",
+				"SPDX-License-Identifier": "MIT",
+				"sourceLink" : "https://github.com/tfussell/xlnt",
+				"version" : "1.5.0",
+				"noVersion" : true
+			}
+		],
+		"releaseName" : "xlnt",
+		"hasGithub" : true
 	}
 }
