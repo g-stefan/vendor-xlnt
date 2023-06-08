@@ -11,7 +11,6 @@
 				"noVersion" : true
 			}
 		],
-		"releaseName" : "xlnt",
-		"hasGithub" : true
+		"releaseName" : "xlnt"
 	}
 }
