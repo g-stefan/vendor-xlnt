@@ -25,7 +25,6 @@ Shell.mkdirRecursivelyIfNotExists("temp");
 Shell.mkdirRecursivelyIfNotExists("temp/cmake");
 
 if (!Shell.fileExists("temp/build.config.flag")) {
-	Shell.copyFile("fabricare/CMakeLists.txt","source/CMakeLists.txt");
 
 	Shell.setenv("CC","cl.exe");
 	Shell.setenv("CXX","cl.exe");
@@ -35,12 +34,34 @@ if (!Shell.fileExists("temp/build.config.flag")) {
 	cmdConfig+=" -G \"Ninja\"";
 	cmdConfig+=" -DCMAKE_BUILD_TYPE=Release";
 	cmdConfig+=" -DCMAKE_INSTALL_PREFIX="+Shell.realPath(Shell.getcwd())+"\\output";
+	cmdConfig+=" -DTESTS=OFF";
+	cmdConfig+=" -DSAMPLES=OFF";
+	cmdConfig+=" -DBENCHMARKS=OFF";
+	cmdConfig+=" -DPYTHON=OFF";
+	cmdConfig+=" -DCOVERAGE=OFF";
+
+	if (Fabricare.isDynamic()) {
+		cmdConfig += " -DBUILD_SHARED_LIBS=ON";
+		cmdConfig += " -DWIN32_MT_BUILD=OFF";		
+	};
+
+	if (Fabricare.isStatic()) {
+		cmdConfig += " -DBUILD_SHARED_LIBS=OFF";
+		cmdConfig += " -DWIN32_MT_BUILD=ON";
+		cmdConfig += " -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded";
+		cmdConfig += " -DSTATIC=ON";
+		cmdConfig += " -DSTATIC_CRT=ON";
+	};
 
 	runInPath("temp/cmake",function(){
 		exitIf(Shell.system(cmdConfig));
 	});
 
 	Shell.filePutContents("temp/build.config.flag", "done");
+};
+
+if (Fabricare.isStatic()) {
+	Shell.copyFile("fabricare/source/xlnt_config.hpp","source/include/xlnt/xlnt_config.hpp");
 };
 
 runInPath("temp/cmake",function(){
