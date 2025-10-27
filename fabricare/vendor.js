@@ -35,7 +35,7 @@ Shell.removeFile("archive/" + Project.vendor + ".7z");
 
 // Source
 runInPath("archive", function() {
-	webLink = "https://github.com/tfussell/xlnt/archive/v"+Project.version+".zip";
+	webLink = "https://github.com/xlnt-community/xlnt/releases/download/v"+Project.version+"/xlnt-"+Project.version+"_with_submodules.zip";
 	if (!Shell.fileExists(Project.vendor + ".zip")) {
 		exitIf(Shell.system("curl --insecure --location " + webLink + " --output " + Project.vendor + ".zip"));
 	};

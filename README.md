@@ -1,6 +1,6 @@
 # vendor-xlnt
 
-Build scripts for compiling [XLNT](https://github.com/tfussell/xlnt) with MSVC compiler toolset, to be used with [XYO SDK](https://github.com/g-stefan/xyo-sdk)
+Build scripts for compiling [XLNT](https://github.com/xlnt-community/xlnt) with MSVC compiler toolset, to be used with [XYO SDK](https://github.com/g-stefan/xyo-sdk)
 
 ## License
 

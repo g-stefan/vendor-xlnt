@@ -26,12 +26,10 @@ Shell.mkdirRecursivelyIfNotExists("temp/cmake");
 
 if (!Shell.fileExists("temp/build.config.flag")) {
 
-	Shell.copyFile("fabricare/source/CMakeLists.txt", "source/CMakeLists.txt");
-	Shell.copyFile("fabricare/source/benchmarks.CMakeLists.txt", "source/benchmarks/CMakeLists.txt");
-	Shell.copyFile("fabricare/source/source.CMakeLists.txt", "source/source/CMakeLists.txt");
-	Shell.copyFile("fabricare/source/tests.CMakeLists.txt", "source/tests/CMakeLists.txt");
-	Shell.copyFile("fabricare/source/cmake.ucm.cmake", "source/cmake/ucm.cmake");
-	Shell.copyFile("fabricare/source/third-party.libstudxml.CMakeLists.txt", "source/third-party/libstudxml/CMakeLists.txt");
+	Shell.copyFile("fabricare/source/include.xlnt.worksheet.selection.hpp", "source/include/xlnt/worksheet/selection.hpp");
+	if (Fabricare.isStatic()) {
+		Shell.copyFile("fabricare/source/third-party.libstudxml.build.CMakeLists.txt", "source/third-party/libstudxml.build/CMakeLists.txt");
+	};
 
 	Shell.setenv("CC","cl.exe");
 	Shell.setenv("CXX","cl.exe");
@@ -65,10 +63,6 @@ if (!Shell.fileExists("temp/build.config.flag")) {
 	});
 
 	Shell.filePutContents("temp/build.config.flag", "done");
-};
-
-if (Fabricare.isStatic()) {
-	Shell.copyFile("fabricare/source/xlnt_config.hpp","source/include/xlnt/xlnt_config.hpp");
 };
 
 runInPath("temp/cmake",function(){
